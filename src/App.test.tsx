@@ -49,3 +49,14 @@ test('on/off button has skyblue color', () => {
 
   expect(onOffButton).toHaveStyle('background-color: skyblue');
 });
+
+test('Prevent the -, + buttons from being pressed when on/off button is clicked', () => {
+  render(<App />);
+  const onOffButton = screen.getByTestId('on-off-button');
+  fireEvent.click(onOffButton);
+  const minusButton = screen.getByTestId('minus-button');
+  const plusButton = screen.getByTestId('plus-button');
+
+  expect(minusButton).toBeDisabled();
+  expect(plusButton).toBeDisabled();
+});
