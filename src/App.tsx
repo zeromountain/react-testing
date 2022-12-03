@@ -25,6 +25,9 @@ function App() {
             +
           </Button>
         </GapFlex>
+        <Button data-testid='on-off-button' backgroundColor='skyblue'>
+          On/Off
+        </Button>
       </header>
     </div>
   );
@@ -33,20 +36,22 @@ function App() {
 export default App;
 
 type PropsType = {
+  flexDirection?: 'row' | 'column';
   gap?: string;
+  backgroundColor?: string;
 };
 
 const GapFlex = styled.div((props: PropsType) => ({
   display: 'flex',
   gap: props.gap || '1rem',
+  flexDirection: props.flexDirection || 'row',
 }));
 
-const Button = styled.button`
-  width: 50px;
-  height: 30px;
-  background-color: gray;
-  color: white;
-  font-size: 20px;
-  border-radius: 5px;
-  border: 1px solid black;
-`;
+const Button = styled.button((props: PropsType) => ({
+  width: '50px',
+  height: '30px',
+  backgroundColor: props.backgroundColor || 'gray',
+  color: 'white',
+  border: '1px solid black',
+  borderRadius: '5px',
+}));

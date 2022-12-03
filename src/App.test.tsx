@@ -42,3 +42,10 @@ test("When the plus button is clicked, the counter's text changes to 1", () => {
   const counterElement = screen.getByTestId('counter');
   expect(counterElement).toHaveTextContent('1');
 });
+
+test('on/off button has skyblue color', () => {
+  render(<App />);
+  const onOffButton = screen.getByTestId('on-off-button');
+
+  expect(onOffButton).toHaveStyle('background-color: skyblue');
+});
