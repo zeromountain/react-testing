@@ -5,13 +5,25 @@ import './App.css';
 function App() {
   const [counter, setCounter] = useState(0);
 
+  const handleMinusClick = () => {
+    setCounter(counter - 1);
+  };
+
+  const handlePlusClick = () => {
+    setCounter(counter + 1);
+  };
+
   return (
     <div className='App'>
       <header className='App-header'>
         <h3 data-testid='counter'>{counter}</h3>
         <GapFlex gap='20px'>
-          <Button data-testid='minus-button'>-</Button>
-          <Button data-testid='plus-button'>+</Button>
+          <Button data-testid='minus-button' onClick={handleMinusClick}>
+            -
+          </Button>
+          <Button data-testid='plus-button' onClick={handlePlusClick}>
+            +
+          </Button>
         </GapFlex>
       </header>
     </div>
